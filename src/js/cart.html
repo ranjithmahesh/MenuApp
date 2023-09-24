@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <h1 class="cartTitle">Your Cart</h1>
+    <button class="homebutton"><a href="../index.html">Home</a></button>
+    <hr class="dash" />
+
+    <section class="cart" id="cart"></section>
+
+    <script src="./index.js"></script>
+  </body>
+</html>
+
+<!--if (import.meta.env.DEV) {
+  import("../api/browser").then(({ worker }) =>
+    worker
+      .start()
+      .then((res) => fetch("/dishes"))
+      .then((res) => res.json())
+      .then((res) => (menu = res))
+  );
+}
+let menu = [];
+let allAddToCartButtons = [];
+let cart = [];
+let allDeletButtons = [];
+updateCartCounter();
+
+function updateCartCounter() {
+  document.getElementById("cartbutton").innerHTML = "&#x1F6D2;" + cart.length;
+}
+
+let allDishes = document.getElementById("container");
+
+let content = "";
+let cartContent = "";
+
+displayAll(menu);
+displayCartDishes();
+
+function displayAll(dishes) {
+  content = "";
+  dishes.forEach((dish) => {
+    let inidvidualDish = `
+    <div
+   class="dish">
+  <img
+    src=${dish.img}/>
+  <div class="outer-div">
+    <div class="right-div">
+      <h2 class="title">${dish.title}</h2>
+      <h2 class="price">$ ${dish.price}</h2>
+    </div>
+    <p class="desc">
+    ${dish.desc}
+    </p>dishcartbutton
+    <button id= ${dish.id}  class="dishcartbutton">Add To Cart</button>
+  </div>
+  </div>
+  `;
+    content += inidvidualDish;
+  });
+  allDishes.innerHTML = content;
+  getCartButtons();
+}
+
+let allbuttons = document.querySelectorAll("button");
+allbuttons.forEach((button) =>
+  button.addEventListener("click", (e) => filterItems(e.target.innerHTML))
+);
+
+function filterItems(category) {
+  allDishes.innerHTML = "";
+  if (category == "All") {
+    displayAll(menu);
+  } else {
+    getCartButtons();
+    let filteredItems = menu.filter(
+      (dish) =>
+        dish.category.toLocaleLowerCase() == category.toLocaleLowerCase()
+    );
+    displayAll(filteredItems);
+  }
+}
+
+function getCartButtons() {
+  allAddToCartButtons = document.querySelectorAll(".dishcartbutton");
+  allAddToCartButtons.forEach((button) =>
+    button.addEventListener("click", (e) => {
+      addDishToCart(e.target.id);
+    })
+  );
+}
+
+function addDishToCart(dishID) {
+  let flag = -1;
+
+  menu.forEach((dish) => {
+    if (dish.id == dishID) {
+      cart.forEach((cartDish) => {
+        if (cartDish.id == dishID) {
+          cartDish.quantity += 1;
+          flag = 1;
+        }
+      });
+      if (flag != 1) {
+        let tempDish = { ...dish, quantity: 1 };
+        cart.push(tempDish);
+      }
+    }
+  });
+
+  updateCartCounter();
+  displayCartDishes();
+}
+
+function displayCartDishes() {
+  cartContent = "";
+  cart.forEach((dish) => {
+    let inidvidualDish = `<div class="cartDish">
+  <img
+    src=${dish.img}
+  />
+  <h3>${dish.title}</h3>
+  <h3>${dish.price}  id=${dish.id}</h3>
+  <button id="minus">-</button>
+  <h3>${dish.quantity}</h3>
+  <button id="plus" >+</button>
+  <p class="delet" id=${dish.id}>X</p>
+</div>`;
+
+    cartContent += inidvidualDish;
+  });
+  document.getElementById("cart").innerHTML = cartContent;
+  getDeletButtons();
+}
+
+function getDeletButtons() {
+  allDeletButtons = document.querySelectorAll(".delet");
+  allDeletButtons.forEach((button) =>
+    button.addEventListener("click", (e) => {
+      removeDishFromCart(e.target.id);
+    })
+  );
+}
+
+function removeDishFromCart(removeID) {
+  let flag = -1;
+  let tempID = -1;
+  for (let i = 0; i < cart.length; i++) {
+    if (cart[i].id == removeID) {
+      flag = 1;
+    }
+  }
+
+  if (flag) {
+    cart.splice(tempID, 1);
+  }
+  updateCartCounter();
+  displayCartDishes();
+}
+
+function getIncrementButtons() {
+  allIncrementDeletButtons = document.querySelectorAll("#plus");
+  allIncrementDeletButtons.forEach((button) =>
+    button.addEventListener("click", (e) => {
+      incrementDishFromCart(e.target.id);
+    })
+  );
+} -->
